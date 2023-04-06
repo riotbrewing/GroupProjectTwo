@@ -3,7 +3,6 @@ package dmacc.tests;
 import java.util.HashMap;
 import java.util.Map;
 
-import dmacc.beans.Ingredient;
 import dmacc.beans.RecipeDetails;
 
 /**

@@ -1,10 +1,15 @@
 package dmacc.beans;
 
-import java.util.Map;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+
 import lombok.Data;
 
 /**
@@ -21,24 +26,27 @@ public class RecipeDetails {
 	@Id
 	@GeneratedValue
 	public long id;
-	public Map<String, Ingredient> listOfIngredients;
-	public String recipeDirections;
+	//public Ingredient ingredients;
 	public String recipeNames;
+	public String recipeDirections;
+	public String item;
+	public double quantity;
+	public String quantityType;
 	
+	
+	
+
+
+	public RecipeDetails() {
+		super();
+		
+	}
 	// setters getters commented out, I can not get the @Data annotation to work right for me
-	/*
-	 * public long getId() {
+	 public long getId() {
 		return id;
 	}
-	
 	public void setId(long id) {
 		this.id = id;
-	}
-	public Map<String, Ingredient> getListOfIngredients() {
-		return listOfIngredients;
-	}
-	public void setListOfIngredients(Map<String, Ingredient> listOfIngredients) {
-		this.listOfIngredients = listOfIngredients;
 	}
 	public String getRecipeDirections() {
 		return recipeDirections;
@@ -52,11 +60,29 @@ public class RecipeDetails {
 	public void setRecipeNames(String recipeNames) {
 		this.recipeNames = recipeNames;
 	}
+	public String getItem() {
+		return item;
+	}
+	public void setItem(String ingredient) {
+		this.item = ingredient;
+	}
+	public double getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(double quantity) {
+		this.quantity = quantity;
+	}
+	public String getQuantityType() {
+		return quantityType;
+	}
+	public void setQuantityType(String quantityType) {
+		this.quantityType = quantityType;
+	}
 	@Override
 	public String toString() {
-		return "RecipeDetails [id=" + id + ", listOfIngredients=" + listOfIngredients + ", recipeDirections="
+		return "RecipeDetails [id=" + id  + ", recipeDirections="
 				+ recipeDirections + ", recipeNames=" + recipeNames + "]";
 	}
-	 */
+	 
 	
 }
