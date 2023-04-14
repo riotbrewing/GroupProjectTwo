@@ -8,36 +8,115 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel = "stylesheet" href="css/styles.css">
-<script src="js/scriptsheet"></script>
+<style>
+a:link, a:visited
+{
+	background-color: #86c496;;
+	color: white;
+	padding: 14px 25px;
+	text-align: center;
+	text-decoration: none;
+	margin: 15px;
+}
+
+a:hover, a:active
+{
+	background-color: #86c496;	
+}
+
+h1
+{
+	font-family: 'Righteous', cursive;
+	color: #86c496;
+}
+
+h3
+{
+	font-family: 'Pacifico', cursive;
+	color: #86c496;
+	margin: 10px;
+}
+
+h4
+{
+	color: #86c496;
+	font-family: 'Righteous', cursive;
+}
+
+.banner
+{
+	background-image: url("../assets/main_banner.jpg");
+	background-color: grey;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: red;
+	height: 3in;
+}
+
+.center
+{
+	color: #86c496;
+	font-family: 'Righteous', cursive;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+}
+
+
+.banner_text
+{
+	color: #86c496;
+	font-family: 'Righteous', cursive;
+}	
+
+
+</style>
+
 <title>Add a recipe</title>
 </head>
-<body>
+<body >
 	<div class = "container">
 	<form th:object="${addNew}" th:action="@{/update/{id}(id=${addNew.id})}" method=POST>
 		<div class = "mb-3">
 			<label for= "recipeNames" class = "form-label">Recipe Name: </label>
 			<input name="recipeNames" class = "form-control" size="20" th:field="*{recipeNames}">
 		</div>
+		<div class = "mb-4">
+			<label for= "desciption" class = "form-label">Brief Description: </label>
+			<textarea name="desciption" class = "form-control" th:field="*{desciption}"></textarea>
+		</div>
+		
 		<div class = "mb-3">
+			<label for= "ingredients" class = "form-label">Ingredients: </label>
+			<textarea name="ingredients" class = "form-control"  th:field="*{ingredients}"></textarea>
+		</div>
+		<div class = "mb-4">
 			<label for= "recipeDirections" class = "form-label">Directions: </label>
-			<input name="recipeDirections" class = "form-control" size="50" th:field="*{recipeNames}">
-		</div>
-		<div class = "mb-3">
-			<label for= "item" class = "form-label">Ingredient Description: </label>
-			<input name="item" class = "form-control" size="20" th:field="*{item}">
-		</div>
-		<div class = "mb-3">
-			<label for= "quantity" class = "form-label">Quantity: </label>
-			<input name="quantity" class = "form-control" size="20" th:field="*{quantity}">
-		</div>
-		<div class = "mb-3">
-			<label for= "quantityType" class = "form-label">Quantity: </label>
-			<input name="quantityType" class = "form-control" size="20" th:field="*{quantityType}">
+			<textarea name="recipeDirections" class = "form-control" th:field="*{recipeDirections}"></textarea>
 		</div>
 		
 		<button type = "submit" class = "btn btn-primary">Submit</button>
 		
 	</form>
 	</div>
+	<script >
+	 //assign a variable to the select element fomr the create recipe page
+	 let selectIngredient = document.querySelector("#numberOfIngredients")
+	 
+	 
+	 //function to run on page load
+	 
+		 //assign a variable for the max number of ingredients
+		 let max = 20;
+		 //add the the options to the select
+		 for(let i = 0; i < max; i++)
+		 {
+			 let option = document.createElement("option");
+			 option.value = i + 1;
+			 option.innerHTML = i + 1;
+			 selectIngredient.add(option);
+		 }
+	 </script>
 </body>
 </html>

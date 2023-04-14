@@ -1,12 +1,13 @@
 package dmacc.contoller;
 
-import java.util.Map;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
+import dmacc.beans.Ingredients;
 import dmacc.beans.RecipeDetails;
+
 
 /**
  * @author  Andrew Steele aeste - aesteele
@@ -21,9 +22,17 @@ public class BeanConfig {
 	RecipeDetails rd()
 	{
 		RecipeDetails bean = new RecipeDetails();
+		
 		return bean;
 	}
-    
+     
+	@Bean
+	Ingredients ing()
+	{
+		Ingredients bean2 = new Ingredients();
+		return bean2;
+	}
+	
 	
 	
 }

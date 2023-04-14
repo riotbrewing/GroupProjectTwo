@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import dmacc.beans.Ingredients;
 import dmacc.beans.RecipeDetails;
 
 import dmacc.repository.RecipeRepo;
@@ -30,6 +31,7 @@ public class WebContoller {
 			{
 				return addNewRecipe(model);
 			}
+			
 			model.addAttribute("recipe", repo.findAll());
 			return "AllRecipes";
 		}
@@ -46,6 +48,14 @@ public class WebContoller {
 			RecipeDetails add = new RecipeDetails();
 			model.addAttribute("addNew", add);
 			return "CreateRecipe";
+		}
+	
+	@GetMapping("/summary/{id}")
+		public String recipe(@PathVariable long id, Model model)
+		{
+		RecipeDetails r = repo.findById(id).orElse(null);
+		model.addAttribute("addNew", r);
+		return "summary";
 		}
 	
 	@PostMapping("/addRecipe")

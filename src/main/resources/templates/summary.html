@@ -75,22 +75,26 @@ h4
 <title>Insert title here</title>
 </head>
 <body>
- <h1>VEIW ALL</h1>
- 	<form>
- 		
-			<table class = "table">
-			<tr th:each="currentRecipe: ${recipe}">
-				<td th:text="${currentRecipe.id}" style="display: none"/>
-				<td th:text="${currentRecipe.recipeNames}" />
-				<td th:text="${currentRecipe.desciption}" />
-				<td th:text="${currentRecipe.recipeDirections}" style="display: none" />
-				<td th:text="${currentRecipe.ingredients}" style="display: none"/>
-				<td><a th:href="@{/summary/{id}(id=${currentRecipe.id})}">View Recipe</a></td>
-				<td><a th:href="@{/edit/{id}(id=${currentRecipe.id})}">Edit</a></td>
-				<td><a th:href="@{/delete/{id}(id=${currentRecipe.id})}">Delete</a></td>
-				</tr>
-			</table>
-		</form>
+ <h1>Summary</h1>
+ 	<div class = "container">
+	<div th:object="${addNew}" th:action="@{/update/{id}(id=${addNew.id})}" method=POST>
+		<div class = "mb-3">
+			<label for= "recipeNames" class = "form-label">Recipe Name: </label>
+			<input name="recipeNames" class = "form-control" size="20" th:field="*{recipeNames}">
+		</div>
+		<div class = "mb-3">
+			<label for= "ingredients" class = "form-label">Ingredients: </label>
+			<textarea name="ingredients" class = "form-control"  th:field="*{ingredients}"></textarea>
+		</div>
+		<div class = "mb-4">
+			<label for= "recipeDirections" class = "form-label">Directions: </label>
+			<textarea name="recipeDirections" class = "form-control" th:field="*{recipeDirections}"></textarea>
+		</div>
+		
+		
+		
+	</div>
+	</div>
 <script src="js/scriptsheet.js"></script>
 </body>
 </html>
