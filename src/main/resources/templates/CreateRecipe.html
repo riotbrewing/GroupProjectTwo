@@ -77,28 +77,37 @@ h4
 </head>
 <body >
 	<div class = "container">
-	<form th:object="${addNew}" th:action="@{/update/{id}(id=${addNew.id})}" method=POST>
-		<div class = "mb-3">
-			<label for= "recipeNames" class = "form-label">Recipe Name: </label>
-			<input name="recipeNames" class = "form-control" size="20" th:field="*{recipeNames}">
+		<div class="row aligns-items-center justify-content-center" style="height: auto">
+			<h1>Add a Recipe</h1>
 		</div>
-		<div class = "mb-4">
-			<label for= "desciption" class = "form-label">Brief Description: </label>
-			<textarea name="desciption" class = "form-control" th:field="*{desciption}"></textarea>
-		</div>
+		<div class="justify-content-center">
+			<form th:object="${addNew}" th:action="@{/update/{id}(id=${addNew.id})}" method=POST>
+				<div class = "mb-3">
+					<label for= "recipeNames" class = "form-label">Recipe Name: </label>
+					<input name="recipeNames" class = "form-control" size="20" th:field="*{recipeNames}">
+				</div>
+				<div class = "mb-4">
+					<label for= "desciption" class = "form-label">Brief Description: </label>
+					<textarea name="desciption" class = "form-control" th:field="*{desciption}"></textarea>
+				</div>
+				
+				<div class = "mb-3">
+					<label for= "ingredients" class = "form-label">Ingredients: </label>
+					<textarea name="ingredients" class = "form-control"  th:field="*{ingredients}"></textarea>
+				</div>
+				<div class = "mb-4">
+					<label for= "recipeDirections" class = "form-label">Directions: </label>
+					<textarea name="recipeDirections" class = "form-control" th:field="*{recipeDirections}"></textarea>
+				</div>
+				
+				<button type = "submit" class = "btn btn-primary">Submit</button>				
 		
-		<div class = "mb-3">
-			<label for= "ingredients" class = "form-label">Ingredients: </label>
-			<textarea name="ingredients" class = "form-control"  th:field="*{ingredients}"></textarea>
-		</div>
-		<div class = "mb-4">
-			<label for= "recipeDirections" class = "form-label">Directions: </label>
-			<textarea name="recipeDirections" class = "form-control" th:field="*{recipeDirections}"></textarea>
-		</div>
-		
-		<button type = "submit" class = "btn btn-primary">Submit</button>
-		
-	</form>
+			</form>
+			<div style="margin-top: 45px">
+				<a href="..">Home</a>
+			</div>
+			
+		</div>	
 	</div>
 	<script >
 	 //assign a variable to the select element fomr the create recipe page
