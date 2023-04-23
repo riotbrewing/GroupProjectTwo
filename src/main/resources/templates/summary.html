@@ -72,29 +72,31 @@ h4
 
 
 </style>
-<title>Insert title here</title>
+<title>Recipe Summary</title>
 </head>
 <body>
- <h1>Summary</h1>
- 	<div class = "container">
-	<div th:object="${addNew}" th:action="@{/update/{id}(id=${addNew.id})}" method=POST>
-		<div class = "mb-3">
-			<label for= "recipeNames" class = "form-label">Recipe Name: </label>
-			<input name="recipeNames" class = "form-control" size="20" th:field="*{recipeNames}">
+	<div class="col-3"></div>
+	<div class="row aligns-items-center justify-content-center" style="height: auto">	
+		<h1>Recipe Summary</h1>
+	</div>	
+ 	<div class = "col-md-auto container">
+		<div th:object="${addNew}" th:action="@{/update/{id}(id=${addNew.id})}" method=POST>
+			<div class = "mb-3">
+				<label for= "recipeNames" class = "form-label">Recipe Name: </label>
+				<input name="recipeNames" class = "form-control" size="20" th:field="*{recipeNames}">
+			</div>
+			<div class = "mb-3">
+				<label for= "ingredients" class = "form-label">Ingredients: </label>
+				<textarea name="ingredients" class = "form-control"  th:field="*{ingredients}"></textarea>
+			</div>
+			<div class = "mb-4">
+				<label for= "recipeDirections" class = "form-label">Directions: </label>
+				<textarea name="recipeDirections" class = "form-control" th:field="*{recipeDirections}"></textarea>
+			</div>			
+			<a href="..">Home</a>			
 		</div>
-		<div class = "mb-3">
-			<label for= "ingredients" class = "form-label">Ingredients: </label>
-			<textarea name="ingredients" class = "form-control"  th:field="*{ingredients}"></textarea>
-		</div>
-		<div class = "mb-4">
-			<label for= "recipeDirections" class = "form-label">Directions: </label>
-			<textarea name="recipeDirections" class = "form-control" th:field="*{recipeDirections}"></textarea>
-		</div>
-		
-		
-		
 	</div>
-	</div>
+	<div class="col-3"></div>	
 <script src="js/scriptsheet.js"></script>
 </body>
 </html>
