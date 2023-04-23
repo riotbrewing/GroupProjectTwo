@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -28,17 +28,20 @@
 	<br><br>
 		<h1>Search For Recipes</h1><br>
 		<div class ="input-group justify-content-center">
-			<div class = "form-outline text-center">
-				<input type = "search" id = "search_bar" class = "form-control"/>
-			</div>
-			<button type = "button" class = "btn btn-secondary">SEARCH
-				<i class="fas fa-search"></i>
-			</button>
+	 		<form th:action="@{/}" th:object="${searchRecipe}" method=POST>
+	 			<tr>
+	 				<td>
+	 					<label for="recipeNames" class="form-label"></label>	 				
+	 					<input name="recipeNames" type="text" th:field="*{recipeNames}" class="form-control" placeholder="Recipe Name"/>
+	 				</td>	 					 					 					 				
+	 			</tr>	 
+	 			<td colspan="2"><button style="margin-top: 15px" type="submit" class="btn btn-info">Search</button></td>			 				 			 	
+	 		</form>
 		</div>
 	</div>
 	<br><br><br><br>
 	<div>
-		<a href = "addRecipe">Add Recipe</a>
+		<a href="addRecipe">Add Recipe</a>
 	</div>
 	
 	<div style ="margin-top: 45px" >

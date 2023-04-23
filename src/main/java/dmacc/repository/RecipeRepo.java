@@ -12,5 +12,7 @@ import dmacc.beans.RecipeDetails;
 
 public interface RecipeRepo extends JpaRepository<RecipeDetails, Long>{
 
+	RecipeDetails findByRecipeNames(String name);			
+	
 }
 

@@ -36,11 +36,26 @@ public class WebContoller {
 			return "AllRecipes";
 		}
 	
-	@GetMapping("/home")
-		public String goHome()
-		{
-			return "index";
-		}
+	@PostMapping("/")
+	public String searchRecipes(@ModelAttribute RecipeDetails formData, Model model)
+	{
+		//here is where we'll search for recipes (I think)
+		RecipeDetails search = repo.findByRecipeNames(formData.getRecipeNames());
+		if(search == null || search.recipeNames == "") {
+			return "noRecipeMatch";
+		}else {			
+			return recipe(search.id, model); 
+		}							
+	}
+
+	
+	@GetMapping("/")
+	public String searchRecipes(Model model)
+	{
+		RecipeDetails search = new RecipeDetails();
+		model.addAttribute("searchRecipe", search);
+		return "../static/index";
+	}
 	
 	@GetMapping("/addRecipe")
 		public String addNewRecipe(Model model)
